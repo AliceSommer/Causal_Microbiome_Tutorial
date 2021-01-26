@@ -64,7 +64,7 @@ ggplot(sample_data(ps_prune), aes(x = id)) +
   geom_point(aes(y = richness), colour = "blue", alpha = .5) +
   xlab('Samples') + ylab("BA estimate")
 
-g_PM <- ggplot(sample_data(ps_prune_out), aes(color = factor(W), y = breakaway_W)) +
+g_PM <- ggplot(sample_data(ps_prune), aes(color = factor(W), y = breakaway_W)) +
   geom_boxplot(alpha = .5) + ylab('breakaway richness measure') +
   scale_x_discrete(name = "") +
   scale_colour_manual(values = c("darkgreen","blue4"), limits=c("1","0"), name ="Smoking", labels = c("No","Yes")) +
@@ -74,14 +74,20 @@ g_PM <- ggplot(sample_data(ps_prune_out), aes(color = factor(W), y = breakaway_W
 #######################################################
 ### 2. RANDOMIZATION-TEST WITH BETTA TEST STATISTIC ###
 #######################################################
+
 x <- cbind(1, 
-          # sample_data(ps_prune)$sex,
-          sample_data(ps_prune)$W)
-head(sample_data(ps_prune)$breakaway_W)
-head(sample_data(ps_prune)$ba_error_W)
+           # sample_data(ps_prune)$sex,
+           sample_data(ps_prune)$W)
+
+## small error estimates have to be modified to used betta function
+error_modif <- sample_data(ps_prune)$ba_error_W 
+# sum(error_modif < 1) # 9
+error_modif[error_modif < 1] 
+error_modif[error_modif < 1] <- .9
+error_modif[error_modif < .000000001] <- .000001
 
 reg <- betta(sample_data(ps_prune)$breakaway_W,
-             sample_data(ps_prune)$ba_error_W, 
+             error_modif, 
              X = x)
 reg$table
 estim_obs <- reg$table[2,1]
@@ -91,23 +97,19 @@ dim(W_paired_smoke)
 W_paired_smoke <- W_paired_smoke[order(rownames(W_paired_smoke)), ]
 
 # set the number of randomizations
-nrep <- ncol(W_paired_smoke)/1000
-# nrep <- ncol(W_paired)/100
+nrep <- ncol(W_paired_smoke)/2000
 
 # create a matrix where the t_rand will be saved
 t_array <- NULL
 
-for(i in 2:nrep){
+for(i in 1:nrep){
   print(i)
   x = cbind(1, 
-            # sample_data(ps_prune)$u3tcigsmk, 
             # sample_data(ps_prune)$u3csex
             W_paired_smoke[,i])
-            # W_paired[,i]) 
             
-  
   reg = betta(sample_data(ps_prune)$breakaway_W,
-              sample_data(ps_prune)$ba_error_W, X = x)
+              error_modif, X = x)
   
   # fill t_array
   t_array[i] = reg$table[2,1] 
