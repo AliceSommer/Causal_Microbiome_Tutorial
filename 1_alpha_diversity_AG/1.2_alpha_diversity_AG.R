@@ -88,18 +88,15 @@ g_PM <- ggplot(sample_data(ps_prune), aes(color = factor(W), y = DivNet_W)) +
 ### 2. RANDOMIZATION-TEST WITH BETTA TEST STATISTIC ###
 #######################################################
 
-## small error estimates have to be modified to used betta function
-error_modif <- sample_data(ps_prune)$DN_error_W 
-# sum(error_modif < 0.00000000001) # 3
-error_modif[error_modif < 0.00000000001] <- 0.00000001
+# import modified function for betta funtions
+source("./misc/model_betta.R")
 
 x <- cbind(1, 
-           # sample_data(ps_prune)$u3tcigsmk1, 
            # sample_data(ps_prune)$u3csex
            sample_data(ps_prune)$W )
 
 reg <- betta(sample_data(ps_prune)$DivNet_W,
-             error_modif, X = x)
+             sample_data(ps_prune)$DN_error_W , X = x)
 reg$table
 estim_obs <- reg$table[2,1]
 
@@ -116,12 +113,11 @@ t_array <- NULL
 for(i in 1:nrep){
   print(i)
   x = cbind(1, 
-            # sample_data(ps_prune)$u3tcigsmk1,
             # sample_data(ps_prune)$u3csex
             W_paired_smoke[,i] )
   
   reg = betta(sample_data(ps_prune)$DivNet_W,
-              error_modif, X = x)
+              sample_data(ps_prune)$DN_error_W , X = x)
   
   # fill t_array
   t_array[i] = reg$table[2,1] 
