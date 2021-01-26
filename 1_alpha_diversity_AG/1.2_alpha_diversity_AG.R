@@ -36,7 +36,7 @@ ps
 empty_species <- rowSums(otu_table(ps))
 length(which(empty_species == 0))
 # remove them
-ps_prune <- prune_taxa(empty_species > 1, ps)
+ps_prune <- prune_taxa(empty_species != 0, ps)
 
 #############################################################
 ### 1. ESTIMATE THE TOTAL ALPHA DIVERSITY FOR EACH SAMPLE ###
