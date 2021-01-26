@@ -75,19 +75,15 @@ g_PM <- ggplot(sample_data(ps_prune), aes(color = factor(W), y = breakaway_W)) +
 ### 2. RANDOMIZATION-TEST WITH BETTA TEST STATISTIC ###
 #######################################################
 
+# import modified function for betta funtions
+source("./misc/model_betta.R")
+
 x <- cbind(1, 
            # sample_data(ps_prune)$sex,
            sample_data(ps_prune)$W)
 
-## small error estimates have to be modified to used betta function
-error_modif <- sample_data(ps_prune)$ba_error_W 
-# sum(error_modif < 1) # 9
-error_modif[error_modif < 1] 
-error_modif[error_modif < 1] <- .9
-error_modif[error_modif < .000000001] <- .000001
-
 reg <- betta(sample_data(ps_prune)$breakaway_W,
-             error_modif, 
+             sample_data(ps_prune)$ba_error_W , 
              X = x)
 reg$table
 estim_obs <- reg$table[2,1]
@@ -97,7 +93,7 @@ dim(W_paired_smoke)
 W_paired_smoke <- W_paired_smoke[order(rownames(W_paired_smoke)), ]
 
 # set the number of randomizations
-nrep <- ncol(W_paired_smoke)/2000
+nrep <- ncol(W_paired_smoke)/1000
 
 # create a matrix where the t_rand will be saved
 t_array <- NULL
@@ -109,7 +105,7 @@ for(i in 1:nrep){
             W_paired_smoke[,i])
             
   reg = betta(sample_data(ps_prune)$breakaway_W,
-              error_modif, X = x)
+              sample_data(ps_prune)$ba_error_W , X = x)
   
   # fill t_array
   t_array[i] = reg$table[2,1] 
@@ -122,4 +118,3 @@ p_value
 ## plot distribution of test-statistic
 hist(t_array, breaks = 30, main = "", xlab = "breakaway beta (Smoking)")
 abline(v = estim_obs, col = 'red', lwd = 2, lty = 2)
-
