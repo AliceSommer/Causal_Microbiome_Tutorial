@@ -13,9 +13,6 @@ load('./design_AG/agdata.rda')
 ## load sample/matched_data
 load('./design_AG/dat_matched_smoke_ag.RData')
 
-## load W matrix for randomization test
-load("./design_AG/W_paired_smoke_ag.Rdata")
-
 ############################
 # create a phyloseq object # 
 ############################
@@ -62,8 +59,12 @@ taxa_var_ait <- apply(unname(otu_table(ps_ait)), 1, function(x) var(x))
 
 plot(taxa_prev, taxa_var_ait)
 
-condition <- taxa_var_ait < 3 & taxa_prev > .4
+condition <- taxa_var_ait < 3 & taxa_prev > .5
 condition_ref <- which(condition)
+
+# check if at least one reference taxa is in all samples
+reference_values <- apply(otu_table(ps)[condition_ref,], 2, sum)
+table(reference_values)[1:3]
 
 plot(taxa_prev, taxa_var_ait, col = factor(condition))
 
