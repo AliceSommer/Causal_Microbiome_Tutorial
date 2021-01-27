@@ -118,3 +118,4 @@ p_value
 ## plot distribution of test-statistic
 hist(t_array, breaks = 30, main = "", xlab = "breakaway beta (Smoking)")
 abline(v = estim_obs, col = 'red', lwd = 2, lty = 2)
+
