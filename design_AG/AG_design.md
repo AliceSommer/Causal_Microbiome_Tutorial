@@ -45,6 +45,23 @@ agdata_smoke
     ## sample_data() Sample Data:       [ 22164 samples by 659 sample variables ]
     ## tax_table()   Taxonomy Table:    [ 34491 taxa by 13 taxonomic ranks ]
 
+``` r
+# keep samples with big enough sequencing depth (>= 4,000 counts)
+seq_depth <- apply(otu_table(agdata_smoke), 2, sum)
+
+# hist(seq_depth, breaks = 100)
+# summary(seq_depth)
+# table(seq_depth)
+
+agdata_smoke <- prune_samples(seq_depth >= 4000, agdata_smoke)
+agdata_smoke
+```
+
+    ## phyloseq-class experiment-level object
+    ## otu_table()   OTU Table:         [ 34491 taxa and 20880 samples ]
+    ## sample_data() Sample Data:       [ 20880 samples by 659 sample variables ]
+    ## tax_table()   Taxonomy Table:    [ 34491 taxa by 13 taxonomic ranks ]
+
 ### Background covariates
 
 ``` r
@@ -55,7 +72,7 @@ table(sample_data(agdata_smoke)[,20])
 
     ## 
     ##       female         male Not provided  unspecified        other 
-    ##        11513        10122          476           35           18
+    ##        10835         9556          440           33           16
 
 ``` r
 agdata_smoke <- prune_samples(sample_data(agdata_smoke)$sex %in% c('female','male'), agdata_smoke)
@@ -67,9 +84,9 @@ table(sample_data(agdata_smoke)[,309])
 
     ## 
     ##                       20s          30s          40s          50s          60s 
-    ##          606         1966         3714         3889         4107         3937 
+    ##          559         1867         3507         3659         3858         3713 
     ##          70+        child Not provided         teen 
-    ##         1402          894          628          492
+    ##         1329          845          584          470
 
 ``` r
 agdata_smoke <- prune_samples(!sample_data(agdata_smoke)$age_cat %in% c('Not provided','','child','teen'), agdata_smoke)
@@ -80,13 +97,13 @@ summary(sample_data(agdata_smoke)[,109])
 ```
 
     ##       bmi_corrected  
-    ##  Not provided: 6222  
-    ##  25.46       :  289  
-    ##  23.09       :   82  
-    ##  21.93       :   65  
-    ##  21.97       :   60  
-    ##  22.96       :   60  
-    ##  (Other)     :12237
+    ##  Not provided: 5790  
+    ##  25.46       :  272  
+    ##  23.09       :   80  
+    ##  21.93       :   64  
+    ##  22.96       :   57  
+    ##  23.67       :   57  
+    ##  (Other)     :11613
 
 ``` r
 agdata_smoke <- prune_samples(!sample_data(agdata_smoke)$bmi_corrected %in% c('Not provided',''), agdata_smoke)
@@ -97,12 +114,12 @@ summary(sample_data(agdata_smoke)[,c(20,309,109)])
 ```
 
     ##      sex       age_cat    bmi_corrected  
-    ##  female:6763   20s:1367   Min.   : 8.58  
-    ##  male  :5975   30s:2544   1st Qu.:21.47  
-    ##                40s:2584   Median :23.74  
-    ##                50s:2665   Mean   :24.66  
-    ##                60s:2654   3rd Qu.:26.58  
-    ##                70+: 924   Max.   :65.37
+    ##  female:6427   20s:1306   Min.   : 8.58  
+    ##  male  :5662   30s:2405   1st Qu.:21.48  
+    ##                40s:2447   Median :23.75  
+    ##                50s:2537   Mean   :24.67  
+    ##                60s:2517   3rd Qu.:26.58  
+    ##                70+: 877   Max.   :65.37
 
 ## Matching
 
@@ -120,7 +137,7 @@ table(data$W)
 
     ## 
     ##     0     1 
-    ##   250 12488
+    ##   234 11855
 
 ### before matching background covariates plots
 
@@ -149,7 +166,7 @@ g_bmi <- ggplot(data, aes(x = bmi_corrected, fill = factor(W)))  +
 grid.arrange(g_sex,g_age,g_bmi, ncol = 3)
 ```
 
-![](AG_design_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](AG_design_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 ### create pairs of samples
 
@@ -208,8 +225,8 @@ N_control = nrow(control_units)
 cat("Number of treated units:", N_treated,"\nNumber of control units:", N_control,"\n")
 ```
 
-    ## Number of treated units: 12488 
-    ## Number of control units: 250
+    ## Number of treated units: 11855 
+    ## Number of control units: 234
 
 ``` r
 #--------------------------------------------------------------------------------------------------------------#
@@ -259,7 +276,7 @@ setTxtProgressBar(pb,count)
 print(Sys.time()-start_time)
 ```
 
-    ## Time difference of 38.0577 secs
+    ## Time difference of 40.15792 secs
 
 ``` r
 table(matched_df$W)
@@ -267,7 +284,7 @@ table(matched_df$W)
 
     ## 
     ##   0   1 
-    ## 250 250
+    ## 234 234
 
 ### after matching background covariates plots
 
@@ -296,12 +313,12 @@ g_bmi_after <- ggplot(matched_df, aes(x = bmi_corrected, fill = factor(W)))  +
 grid.arrange(g_sex_after,g_age_after,g_bmi_after, ncol = 3)
 ```
 
-![](AG_design_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](AG_design_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 #### save dataset
 
 ``` r
-save(matched_df, file = '../american_gut_example/dat_matched_smoke_ag.RData')
+# save(matched_df, file = './dat_matched_smoke_ag.RData')
 ```
 
 #### save 10,000 possible randomizations
@@ -333,11 +350,11 @@ W_paired_smoke <- unique(W_sim, MARGIN = 2)
 dim(W_paired_smoke)
 ```
 
-    ## [1]    500 100000
+    ## [1]    468 100000
 
 ``` r
 # reorder the data by ff4_prid
 rownames(W_paired_smoke) <- rownames(matched_df)
 
-save(W_paired_smoke, file = "../american_gut_example/W_paired_smoke_ag.RData")
+# save(W_paired_smoke, file = "./W_paired_smoke_ag.RData")
 ```
