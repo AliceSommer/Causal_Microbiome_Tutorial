@@ -7,7 +7,7 @@ American Gut data.
 Framework
 ---------
 
-![Image of Graphical abstract](misc/Fig1_graphical_abstract.png)
+![Image of Graphical abstract](misc/Fig1_graphical_abstract)
 
 Data access
 -----------
@@ -18,8 +18,8 @@ Stage 2: Design
 ---------------
 
 The R code for our pair matching implementation and diagnostic plots
-generation can be found in the [`design`](design_AG) file. The matrix of
-10,000 possible randomization of the intervention assignment is also
+generation can be found in the [`design_AG`](design_AG) file. The matrix
+of 10,000 possible randomization of the intervention assignment is also
 generated directly after matching.
 
 *Note 1*: the matching functions
@@ -42,7 +42,7 @@ for any other data combined in a phyloseq object.
 
 #### Richness and alpha-diversity
 
-R code in [`1_alpha_diversity`](1_alpha_diversity_AG) folder.
+R code in [`1_alpha_diversity_AG`](1_alpha_diversity_AG) folder.
 
 We used Amy Willis’ R packages
 [`breakaway`](https://github.com/adw96/breakaway) for richness
@@ -54,7 +54,7 @@ estimation \[[Willis and Bunge,
 
 #### Beta-diversity
 
-R code in [`2_beta_diversity`](2_beta_diversity_AG) folder.
+R code in [`2_beta_diversity_AG`](2_beta_diversity_AG) folder.
 
 The distance calculations where done with the phyloseq package and we
 used Anna Plantinga’s R package
@@ -66,7 +66,7 @@ for the test statistic calculations \[[Zhao et al.,
 
 #### Compositional equivalence
 
-R code in [`3_mean_diff_test`](3_mean_diff_test_AG) folder.
+R code in [`3_mean_diff_test_AG`](3_mean_diff_test_AG) folder.
 
 Cao, Lin, and Li’s github repository:
 [`composition-two-sampe-test`](https://github.com/yuanpeicao/composition-two-sampe-test)
@@ -75,7 +75,7 @@ Cao, Lin, and Li’s github repository:
 
 #### Differential abundance
 
-R code in [`4_differential_abundance`](4_differential_abundance_AG)
+R code in [`4_differential_abundance_AG`](4_differential_abundance_AG)
 folder.
 
 We use the function `dacomp.test()` of Barak Brill’ R package:
@@ -85,7 +85,7 @@ statistic for all taxa at once \[[Brill, Amir, and Heller,
 
 #### Correlation structure
 
-R code in [`5_networks`](5_networks_AG) folder.
+R code in [`5_networks_AG`](5_networks_AG) folder.
 
 [Peschel et al.’s
 (2020)](https://academic.oup.com/bib/advance-article/doi/10.1093/bib/bbaa290/6017455)
