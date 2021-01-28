@@ -7,7 +7,7 @@ American Gut data.
 Framework
 ---------
 
-![Image of Graphical abstract](misc/Fig1_graphical_abstract)
+![Image of Graphical abstract](misc/Fig1_graphical_abstract.png)
 
 Data access
 -----------

@@ -11,7 +11,7 @@ Causal inference framework for environment-microbiome data applied to American G
 
 ## Framework
 
-![Image of Graphical abstract](misc/Fig1_graphical_abstract)
+![Image of Graphical abstract](misc/Fig1_graphical_abstract.png)
 
 ## Data access
 
