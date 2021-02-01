@@ -105,7 +105,7 @@ W_paired_smoke <- W_paired_smoke[order(rownames(W_paired_smoke)), ]
 dim(W_paired_smoke)
 
 # set the number of randomizations
-nrep <- ncol(W_paired_smoke)/2000
+nrep <- ncol(W_paired_smoke)/100
 
 # create a matrix where the t_rand will be saved
 t_array <- NULL
@@ -127,6 +127,8 @@ for(i in 1:nrep){
 # p_value <- mean(t_array >= t_array[1])
 p_value <- mean(t_array >= estim_obs)
 p_value
+# estimate: -0.008072164
+# p-value: 0.659
 
 ## plot distribution of test-statistic
 hist(t_array, breaks = 30, main = "", xlab = "shannon beta (Smoking)")

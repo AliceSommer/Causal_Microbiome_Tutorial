@@ -33,10 +33,10 @@ its strategy.
 Stage 3: Analysis
 -----------------
 
-The ASV (or OTU) data table, matched dataset, and phylogenetic tree are
-combined in a [phyloseq](https://joey711.github.io/phyloseq/) object
-before making statistical analyses. Thus, the following code can be used
-for any other data combined in a phyloseq object.
+The ASV (or OTU) data table and matched dataset are combined in a
+[phyloseq](https://joey711.github.io/phyloseq/) object before making
+statistical analyses. Thus, the following code can be used for any other
+data combined in a phyloseq object.
 
 ### Diversity
 
@@ -51,6 +51,18 @@ estimation \[[Willis and Bunge,
 [`DivNet`](https://github.com/adw96/DivNet) for Shannon index estimation
 \[[Willis,
 2020](https://academic.oup.com/biostatistics/advance-article-abstract/doi/10.1093/biostatistics/kxaa015/5841114)\].
+
+<ins>
+Richness result
+</ins>
+
+: \# estimate: 108.3931 \# p-value: 0.133
+
+<ins>
+Shannon index result
+</ins>
+
+: \# estimate: -0.008072164 \# p-value: 0.659
 
 #### Beta-diversity
 
