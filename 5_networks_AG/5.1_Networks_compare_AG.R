@@ -103,4 +103,4 @@ comp_W <- netCompare(props_W,
 
 summary(comp_W, showCentr = c("degree", "eigen"), numbTaxa = 5)
 
-diff_net <- diffnet(net_W, nPerm = 2, fileLoadAssoPerm = "./5_networks/assoPerm")
+diff_net <- diffnet(net_W, nPerm = 2, fileLoadAssoPerm = "./5_networks_AG/assoPerm")
