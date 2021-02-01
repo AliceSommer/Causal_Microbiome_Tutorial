@@ -132,6 +132,14 @@ We use the function `dacomp.test()` of Barak Brill’ R package:
 statistic for all taxa at once \[[Brill, Amir, and Heller,
 2020](https://arxiv.org/abs/1904.08937)\].
 
+<ins>
+Results:
+</ins>
+
+Species: Raoultella (Phylum: Proteobacteria), Anaerostipes (Phylum:
+Firmicutes), and Sarcandra (Phylum: Proteobacteria) have p-value \<=
+0.2.
+
 #### Correlation structure
 
 R code in [`5_networks_AG`](5_networks_AG) folder.

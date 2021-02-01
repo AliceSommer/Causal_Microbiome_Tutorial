@@ -80,6 +80,9 @@ R code in [`4_differential_abundance_AG`](4_differential_abundance_AG) folder.
 
 We use the function `dacomp.test()` of Barak Brill' R package: [`dacomp`](https://github.com/barakbri/dacomp) to calculate the test statistic for all taxa at once [[Brill, Amir, and Heller, 2020](https://arxiv.org/abs/1904.08937)].
 
+<ins>Results: </ins>
+Species: Raoultella (Phylum: Proteobacteria), Anaerostipes (Phylum: Firmicutes), and Sarcandra (Phylum: Proteobacteria) have p-value <= 0.2.
+
 #### Correlation structure
 
 R code in [`5_networks_AG`](5_networks_AG) folder.

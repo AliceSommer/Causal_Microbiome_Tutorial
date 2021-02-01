@@ -107,9 +107,13 @@ for(t in 1:p_test){
 p.values.ratio.normalization = apply(stats_matrix_test, 2, function(x) mean(x >= x[1]))
   
 head(sort(p.values.ratio.normalization),20)
-which(p.adjust(p.values.ratio.normalization,method = 'BH') <= 0.2)
-unname(tax_table(ps)[which(p.adjust(p.values.ratio.normalization, method = 'BH')<=0.4),])
-  
+which(p.values.ratio.normalization <= 0.02)
+unname(tax_table(ps)[which(p.values.ratio.normalization <= 0.02),])
+
+# "Raoultella"
+# "Anaerostipes"
+# "Sarcandra"
+
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
 # Multiple comparison adjustment #
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%#
@@ -139,9 +143,10 @@ min_p_nrep <- apply(hyp_p_value, 1, function(x) min(x, na.rm = TRUE))
   
 # calculate the proportion of min_p_nrep that is sm/eq. p_value (for obs.)
 p_value_adj <- sapply(p.values.ratio.normalization, function(x) mean(min_p_nrep <= x))
-  
-p_adj_rejections <- which(p_value_adj <= 0.2)  
-unname(tax_table(ps)[p_adj_rejections,])
+head(sort(p_value_adj))
+
+# p_adj_rejections <- which(p_value_adj <= 0.2)  
+# unname(tax_table(ps)[p_adj_rejections,])
   
 
 
