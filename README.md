@@ -78,9 +78,9 @@ for the test statistic calculations \[[Zhao et al.,
 Results:
 </ins>
 
--   Aitchison estimate: 822866.9; p-value(adj.): 0.002
--   Jaccard estimate: 132.9856; p-value(adj.): 0.002
--   Gower estimate: 0.3761873; p-value(adj.): 0.501
+-   Aitchison: estimate: 822866.9; p-value(adj.): 0.002
+-   Jaccard: estimate: 132.9856; p-value(adj.): 0.002
+-   Gower: estimate: 0.3761873; p-value(adj.): 0.501
 
 ### Compostion
 

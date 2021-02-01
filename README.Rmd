@@ -50,11 +50,11 @@ R code in [`2_beta_diversity_AG`](2_beta_diversity_AG) folder.
 The distance calculations where done with the phyloseq package and we used Anna Plantinga's R package [`MiRKAT`](https://cran.r-project.org/web/packages/MiRKAT/index.html) for the test statistic calculations [[Zhao et al., 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4570290/)].
 
 <ins>Results: </ins> 
-- Aitchison
+- Aitchison:
 estimate: 822866.9; p-value(adj.): 0.002
-- Jaccard
+- Jaccard:
 estimate: 132.9856; p-value(adj.): 0.002 
-- Gower
+- Gower:
 estimate: 0.3761873; p-value(adj.): 0.501
 
 ### Compostion
