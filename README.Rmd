@@ -41,7 +41,7 @@ We used Amy Willis' R packages [`breakaway`](https://github.com/adw96/breakaway)
 # estimate: 108.3931
 # p-value: 0.133 
 
-<ins>Shannon index result: </ins>:
+<ins>Shannon index result: </ins>
 # estimate: -0.008072164
 # p-value: 0.659 
 

@@ -66,7 +66,11 @@ p-value: 0.133
 Shannon index result:
 </ins>
 
-: \# estimate: -0.008072164 \# p-value: 0.659
+estimate: -0.008072164
+======================
+
+p-value: 0.659
+==============
 
 #### Beta-diversity
 
