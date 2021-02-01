@@ -125,7 +125,7 @@ dim(matrix_otu_bind)
 
 # set the number of randomizations
 W_paired <- W_paired_smoke[order(rownames(W_paired_smoke)), ]
-nrep <- ncol(W_paired)/1000
+nrep <- ncol(W_paired)/100
 
 # create vector to be save 
 # first is the obs. test stat
@@ -154,4 +154,7 @@ for (i in 1:nrep){
 hist(Tarray, main = NULL, xlab = NULL, breaks = 100)
 abline(v=clr_x_stat, lty = 2, lwd = 2)
 pval = mean(Tarray >= clr_x_stat); pval
+pval
 
+# estimate: 50.0806
+# p-value: 0.000999001

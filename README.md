@@ -82,6 +82,25 @@ used Anna Plantinga’s R package
 for the test statistic calculations \[[Zhao et al.,
 2015](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4570290/)\].
 
+<ins>
+Results:
+</ins>
+
+-   Aitchison
+
+estimate: 822866.9 \# p-value(adj.): 0.002
+==========================================
+
+-   Jaccard
+
+estimate: 132.9856 \# p-value(adj.): 0.002
+==========================================
+
+-   Gower
+
+estimate: 0.3761873 \# p-value(adj.): 0.501
+===========================================
+
 ### Compostion
 
 #### Compositional equivalence
@@ -92,6 +111,16 @@ Cao, Lin, and Li’s github repository:
 [`composition-two-sampe-test`](https://github.com/yuanpeicao/composition-two-sampe-test)
 \[[Cao, Lin, and Li,
 2018](https://academic.oup.com/biomet/article/105/1/115/4591648)\].
+
+<ins>
+Result:
+</ins>
+
+estimate: 50.0806
+=================
+
+p-value: 0.001
+==============
 
 #### Differential abundance
 

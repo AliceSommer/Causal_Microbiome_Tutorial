@@ -45,20 +45,15 @@ ps_prune <- prune_taxa(empty_species != 0, ps)
 #################
 
 ## MiRKAT
-u_unifrac <- UniFrac(ps_prune, weighted=FALSE, parallel=FALSE, fast=TRUE)
-unifrac_mat <- as.matrix(u_unifrac)
+# u_unifrac <- UniFrac(ps_prune, weighted=FALSE, parallel=FALSE, fast=TRUE)
+# unifrac_mat <- as.matrix(u_unifrac)
 # transform distance matrix to kernel
-K.unweighted_uni <- D2K(unifrac_mat)
+# K.unweighted_uni <- D2K(unifrac_mat)
+## WARNING: Unifrac can only be used when a phylogenetic tree is in the phyloseq object !
 
 head(sample_data(ps_prune)$W)
 outcome <- as.numeric(sample_data(ps_prune)$W == 1)
 head(outcome)
-
-# ## testing using a single Kernel
-# MiRKAT(y = outcome, X = NULL, Ks = K.unweighted_uni, out_type = "D", 
-#                      method = "davies", returnKRV = TRUE, returnR2 = TRUE)
-
-## omnibus test if multiple distance matrices ("Optimal MiRKAT")
 
 ## tranform the data
 ps_clr <- transform_sample_counts(ps_prune, function(x){x <- x + 1; clr(x)})
@@ -128,7 +123,7 @@ W_paired <- W_paired_smoke[order(rownames(W_paired_smoke)), ]
 dim(W_paired)
 
 # set the number of randomizations
-nrep <- ncol(W_paired)/1000
+nrep <- ncol(W_paired)/100
 
 # create a matrix where the t_rand will be saved
 t_arrays <- matrix(NA, ncol=length(Ks), nrow=nrep)
@@ -211,7 +206,8 @@ head(min_p_nrep)
 
 # calculate the proportion of min_p_nrep that is sm/eq. p_value (for obs.)
 p_value_adj <- sapply(p_values, function(x) mean(min_p_nrep <= x))
-head(p_value_adj)
+p_value_adj
+# 0.002 0.002 0.501
 
 col_vline <- brewer.pal(4, "Dark2")
 
