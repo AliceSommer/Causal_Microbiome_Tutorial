@@ -38,12 +38,10 @@ R code in [`1_alpha_diversity_AG`](1_alpha_diversity_AG) folder.
 We used Amy Willis' R packages [`breakaway`](https://github.com/adw96/breakaway) for richness estimation [[Willis and Bunge, 2015](https://onlinelibrary.wiley.com/doi/abs/10.1111/biom.12332)] and [`DivNet`](https://github.com/adw96/DivNet) for Shannon index estimation [[Willis, 2020](https://academic.oup.com/biostatistics/advance-article-abstract/doi/10.1093/biostatistics/kxaa015/5841114)].
 
 <ins>Richness result: </ins> 
-# estimate: 108.3931
-# p-value: 0.133 
+estimate: 108.3931; p-value: 0.133 
 
 <ins>Shannon index result: </ins>
-# estimate: -0.008072164
-# p-value: 0.659 
+estimate: -0.008072164; p-value: 0.659 
 
 #### Beta-diversity
 
@@ -53,14 +51,11 @@ The distance calculations where done with the phyloseq package and we used Anna 
 
 <ins>Results: </ins> 
 - Aitchison
-
-# estimate: 822866.9 # p-value(adj.): 0.002
+estimate: 822866.9; p-value(adj.): 0.002
 - Jaccard
-
-# estimate: 132.9856 # p-value(adj.): 0.002 
+estimate: 132.9856; p-value(adj.): 0.002 
 - Gower
-
-# estimate: 0.3761873 # p-value(adj.): 0.501
+estimate: 0.3761873; p-value(adj.): 0.501
 
 ### Compostion
 
@@ -71,8 +66,7 @@ R code in [`3_mean_diff_test_AG`](3_mean_diff_test_AG) folder.
 Cao, Lin, and Li's github repository: [`composition-two-sampe-test`](https://github.com/yuanpeicao/composition-two-sampe-test) [[Cao, Lin, and Li, 2018](https://academic.oup.com/biomet/article/105/1/115/4591648)].
 
 <ins>Result: </ins>
-# estimate: 50.0806
-# p-value: 0.001
+estimate: 50.0806; p-value: 0.001
 
 #### Differential abundance
 

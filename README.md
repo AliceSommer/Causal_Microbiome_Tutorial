@@ -56,21 +56,13 @@ estimation \[[Willis and Bunge,
 Richness result:
 </ins>
 
-estimate: 108.3931
-==================
-
-p-value: 0.133
-==============
+estimate: 108.3931; p-value: 0.133
 
 <ins>
 Shannon index result:
 </ins>
 
-estimate: -0.008072164
-======================
-
-p-value: 0.659
-==============
+estimate: -0.008072164; p-value: 0.659
 
 #### Beta-diversity
 
@@ -86,20 +78,9 @@ for the test statistic calculations \[[Zhao et al.,
 Results:
 </ins>
 
--   Aitchison
-
-estimate: 822866.9 \# p-value(adj.): 0.002
-==========================================
-
--   Jaccard
-
-estimate: 132.9856 \# p-value(adj.): 0.002
-==========================================
-
--   Gower
-
-estimate: 0.3761873 \# p-value(adj.): 0.501
-===========================================
+-   Aitchison estimate: 822866.9; p-value(adj.): 0.002
+-   Jaccard estimate: 132.9856; p-value(adj.): 0.002
+-   Gower estimate: 0.3761873; p-value(adj.): 0.501
 
 ### Compostion
 
@@ -116,11 +97,7 @@ Cao, Lin, and Li’s github repository:
 Result:
 </ins>
 
-estimate: 50.0806
-=================
-
-p-value: 0.001
-==============
+estimate: 50.0806; p-value: 0.001
 
 #### Differential abundance
 
