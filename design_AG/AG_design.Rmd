@@ -17,63 +17,79 @@ library(igraph)
 ## American gut data 
 
 ```{r, warning = FALSE}
-load('./agdata.rda')
-agdata
+# load('./agdata.rda')
+# agdata
+
+# # 34491 taxa and 27017 samples 
 ```
 
 ### Exposure/Intervention
 
 ```{r}
-# grep('smok',colnames(sample_data(agdata)))
-colnames(sample_data(agdata))[61]; table(sample_data(agdata)[,61])
+# # grep('smok',colnames(sample_data(agdata)))
+# colnames(sample_data(agdata))[61]; table(sample_data(agdata)[,61])
 ```
 
 
 ```{r}
-# keep samples of smoker and never-smoker
-agdata_smoke <- prune_samples(sample_data(agdata)$smoking_frequency %in% c('Daily','Never'), agdata)
-rm(agdata)
-
-agdata_smoke
+# # keep samples of smoker and never-smoker
+# agdata_smoke <- prune_samples(sample_data(agdata)$smoking_frequency %in% c('Daily','Never'), agdata)
+# rm(agdata)
+# 
+# agdata_smoke
+# # 34491 taxa and 22164 samples
 ```
 
 ```{r}
-# keep samples with big enough sequencing depth (>= 4,000 counts)
-seq_depth <- apply(otu_table(agdata_smoke), 2, sum)
-
-# hist(seq_depth, breaks = 100)
-# summary(seq_depth)
-# table(seq_depth)
-
-agdata_smoke <- prune_samples(seq_depth >= 4000, agdata_smoke)
-agdata_smoke
+# # keep samples with big enough sequencing depth (>= 4,000 counts)
+# seq_depth <- apply(otu_table(agdata_smoke), 2, sum)
+# 
+# # hist(seq_depth, breaks = 100)
+# # summary(seq_depth)
+# # table(seq_depth)
+# 
+# agdata_smoke <- prune_samples(seq_depth >= 4000, agdata_smoke)
+# agdata_smoke
+# # 34491 taxa and 20880 samples
 ```
 
 
 ### Background covariates
 
 ```{r}
-# grep('sex',colnames(sample_data(agdata_smoke)))
-# colnames(sample_data(agdata_smoke))[20]
-table(sample_data(agdata_smoke)[,20])
-agdata_smoke <- prune_samples(sample_data(agdata_smoke)$sex %in% c('female','male'), agdata_smoke)
+# # grep('sex',colnames(sample_data(agdata_smoke)))
+# # colnames(sample_data(agdata_smoke))[20]
+# table(sample_data(agdata_smoke)[,20])
+# agdata_smoke <- prune_samples(sample_data(agdata_smoke)$sex %in% c('female','male'), agdata_smoke)
+# 
+# # grep('age_cat',colnames(sample_data(agdata_smoke)))
+# # colnames(sample_data(agdata_smoke))[309]
+# table(sample_data(agdata_smoke)[,309])
+# agdata_smoke <- prune_samples(!sample_data(agdata_smoke)$age_cat %in% c('Not provided','','child','teen'), agdata_smoke)
+# 
+# # grep('bmi',colnames(sample_data(agdata_smoke)))
+# # colnames(sample_data(agdata_smoke))[109]
+# summary(sample_data(agdata_smoke)[,109])
+# agdata_smoke <- prune_samples(!sample_data(agdata_smoke)$bmi_corrected %in% c('Not provided',''), agdata_smoke)
+# 
+# # str(sample_data(agdata_smoke)[,c(20,309,109)])
+# sample_data(agdata_smoke)$bmi_corrected <- as.numeric(as.character(sample_data(agdata_smoke)$bmi_corrected))
+# summary(sample_data(agdata_smoke)[,c(20,309,109)])
+```
 
-# grep('age_cat',colnames(sample_data(agdata_smoke)))
-# colnames(sample_data(agdata_smoke))[309]
-table(sample_data(agdata_smoke)[,309])
-agdata_smoke <- prune_samples(!sample_data(agdata_smoke)$age_cat %in% c('Not provided','','child','teen'), agdata_smoke)
-
-# grep('bmi',colnames(sample_data(agdata_smoke)))
-# colnames(sample_data(agdata_smoke))[109]
-summary(sample_data(agdata_smoke)[,109])
-agdata_smoke <- prune_samples(!sample_data(agdata_smoke)$bmi_corrected %in% c('Not provided',''), agdata_smoke)
-
-# str(sample_data(agdata_smoke)[,c(20,309,109)])
-sample_data(agdata_smoke)$bmi_corrected <- as.numeric(as.character(sample_data(agdata_smoke)$bmi_corrected))
-summary(sample_data(agdata_smoke)[,c(20,309,109)])
+```{r}
+# save data
+# save(agdata_smoke, file = "./agdata_smoke.RData")
 ```
 
 ## Matching
+
+### load data subset for smoking prevention experiment
+
+```{r}
+load("./agdata_smoke.RData")
+```
+
 
 ### prepare before matching data
 
