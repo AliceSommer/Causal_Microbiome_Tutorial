@@ -53,13 +53,17 @@ estimation \[[Willis and Bunge,
 2020](https://academic.oup.com/biostatistics/advance-article-abstract/doi/10.1093/biostatistics/kxaa015/5841114)\].
 
 <ins>
-Richness result
+Richness result:
 </ins>
 
-: \# estimate: 108.3931 \# p-value: 0.133
+estimate: 108.3931
+==================
+
+p-value: 0.133
+==============
 
 <ins>
-Shannon index result
+Shannon index result:
 </ins>
 
 : \# estimate: -0.008072164 \# p-value: 0.659

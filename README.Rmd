@@ -37,11 +37,11 @@ R code in [`1_alpha_diversity_AG`](1_alpha_diversity_AG) folder.
 
 We used Amy Willis' R packages [`breakaway`](https://github.com/adw96/breakaway) for richness estimation [[Willis and Bunge, 2015](https://onlinelibrary.wiley.com/doi/abs/10.1111/biom.12332)] and [`DivNet`](https://github.com/adw96/DivNet) for Shannon index estimation [[Willis, 2020](https://academic.oup.com/biostatistics/advance-article-abstract/doi/10.1093/biostatistics/kxaa015/5841114)].
 
-<ins>Richness result</ins>: 
+<ins>Richness result: </ins> 
 # estimate: 108.3931
 # p-value: 0.133 
 
-<ins>Shannon index result</ins>:
+<ins>Shannon index result: </ins>:
 # estimate: -0.008072164
 # p-value: 0.659 
 
