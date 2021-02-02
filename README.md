@@ -113,7 +113,7 @@ statistic for all taxa at once \[[Brill, Amir, and Heller,
 Results:
 </ins>
 
-Species: Raoultella (Phylum: Proteobacteria), Anaerostipes (Phylum:
+Genera: Raoultella (Phylum: Proteobacteria), Anaerostipes (Phylum:
 Firmicutes), and Sarcandra (Phylum: Proteobacteria) have p-value \<=
 0.02.
 
