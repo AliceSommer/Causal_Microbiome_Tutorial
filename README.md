@@ -115,7 +115,7 @@ Results:
 
 Species: Raoultella (Phylum: Proteobacteria), Anaerostipes (Phylum:
 Firmicutes), and Sarcandra (Phylum: Proteobacteria) have p-value \<=
-0.2.
+0.02.
 
 #### Correlation structure
 
