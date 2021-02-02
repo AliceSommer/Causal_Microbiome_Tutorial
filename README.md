@@ -110,12 +110,20 @@ statistic for all taxa at once \[[Brill, Amir, and Heller,
 2020](https://arxiv.org/abs/1904.08937)\].
 
 <ins>
+Reference set:
+</ins>
+
+k\_Bacteria;p\_Firmicutes;c\_Clostridia;o\_Clostridiales;f\_Lachnospiraceae;g\_Dorea\\
+k\_Bacteria;p\_Firmicutes;c\_Clostridia;o\_Clostridiales;f\_Lachnospiraceae;g\_NA
+
+<ins>
 Results:
 </ins>
 
-Genera: Raoultella (Phylum: Proteobacteria), Anaerostipes (Phylum:
-Firmicutes), and Sarcandra (Phylum: Proteobacteria) have p-value \<=
-0.02.
+Genera with p-value \<= 0.02. \\
+k\_Bacteria;p\_Proteobacteria;c\_Gammaproteobacteria;o\_Enterobacteriales;f\_Enterobacteriaceae;g\_Raoultella\\
+k\_Bacteria;p\_Firmicutes;c\_Clostridia;o\_Clostridiales;f\_Lachnospiraceae;g\_Anaerostipes\\
+k\_Bacteria;p\_Proteobacteria;c\_Alphaproteobacteria;o\_Rickettsiales;f\_mitochondria;g\_Sarcandra
 
 #### Correlation structure
 

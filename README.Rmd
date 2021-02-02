@@ -74,8 +74,15 @@ R code in [`4_differential_abundance_AG`](4_differential_abundance_AG) folder.
 
 We use the function `dacomp.test()` of Barak Brill' R package: [`dacomp`](https://github.com/barakbri/dacomp) to calculate the test statistic for all taxa at once [[Brill, Amir, and Heller, 2020](https://arxiv.org/abs/1904.08937)].
 
+<ins>Reference set: </ins>
+k_Bacteria;p_Firmicutes;c_Clostridia;o_Clostridiales;f_Lachnospiraceae;g_Dorea\\
+k_Bacteria;p_Firmicutes;c_Clostridia;o_Clostridiales;f_Lachnospiraceae;g_NA     
+
 <ins>Results: </ins>
-Genera: Raoultella (Phylum: Proteobacteria), Anaerostipes (Phylum: Firmicutes), and Sarcandra (Phylum: Proteobacteria) have p-value <= 0.02.
+Genera with p-value <= 0.02. \\
+k_Bacteria;p_Proteobacteria;c_Gammaproteobacteria;o_Enterobacteriales;f_Enterobacteriaceae;g_Raoultella\\
+k_Bacteria;p_Firmicutes;c_Clostridia;o_Clostridiales;f_Lachnospiraceae;g_Anaerostipes\\
+k_Bacteria;p_Proteobacteria;c_Alphaproteobacteria;o_Rickettsiales;f_mitochondria;g_Sarcandra  
 
 #### Correlation structure
 
