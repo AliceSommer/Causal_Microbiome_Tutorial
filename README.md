@@ -12,7 +12,8 @@ Framework
 Data access
 -----------
 
-American Gut Data.
+American Gut Data subset \[paper in preparation, Mishra and Müller
+2021\].
 
 Stage 2: Design
 ---------------
