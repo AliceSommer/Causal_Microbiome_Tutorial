@@ -151,16 +151,6 @@ relevant_fields = c(relevant_fields, "is_treated")
 
 matched_df = data.frame()
 total_nb_match = 0
-count = 0
-
-start_time = Sys.time()
-pb = txtProgressBar(min = 0, max = dim(data_match)[1], initial = 0, char = "=", style = 3)
-```
-
-    ##   |                                                                              |                                                                      |   0%
-
-``` r
-count = 0
 
 N = nrow(data_match)
 #--------- explore treated units ---------#
@@ -223,14 +213,7 @@ for (i in 1:N_matched){
   # print(treated_units[pairs_list[[i]][1],relevant_fields])
   # print(control_units[pairs_list[[i]][2],relevant_fields])
 } 
-count = count + 1
-setTxtProgressBar(pb,count)
-print(Sys.time()-start_time)
-```
 
-    ## Time difference of 40.41434 secs
-
-``` r
 table(matched_df$W)
 ```
 
