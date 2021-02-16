@@ -21,7 +21,7 @@ American Gut Data subset [paper in preparation, Mishra and Müller 2021].
 
 The R code for our pair matching implementation and diagnostic plots generation can be found in the [`design_AG`](design_AG) file. The matrix of 10,000 possible randomization of the intervention assignment is also generated directly after matching.
 
-*Note 1*: the matching functions [Stephane_matching.R](misc/Stephane_matching.R) were written in Rcpp by Stéphane Shao.
+*Note 1*: the matching functions [Stephane_matching.R](misc/Stephane_matching.R) were written in C++ with Rcpp by Stéphane Shao.
 
 *Note 2*: other matching strategies are valid. The researcher should take the conceptual hypothetical experiment into account when choosing its strategy.
 
