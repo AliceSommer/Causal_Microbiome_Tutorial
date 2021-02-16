@@ -131,16 +131,16 @@ t_arrays <- matrix(NA, ncol=length(Ks), nrow=nrep)
 for(j in 1:nrep){
   print(j)
   
+  # random treatment assignment
   y_new = W_paired[,j]
   
-  mod <- glm(y_new ~ X1-1, family = family)
-  
+  # calculate test statistic (Q)
+  mod = glm(y_new ~ X1-1, family = family)
   mu  = mod$fitted.values
   res = y_new - mu  
-  
   Qs_new = lapply(Ks, getQ, res, s2 = 1)
   
-  # fill t_arrays 
+  # fill test statistics  
   t_arrays[j,] = unlist(Qs_new) ## not sure this is the statistic we want (KRV?)
 }
 
